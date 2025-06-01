@@ -1,4 +1,45 @@
----
+<nav id="top-bar" class="top-bar">
+  <div class="container top-bar-container">
+    <div class="logo">
+      <a href="/" class="logo-link">
+        <img src="/assets/logo.svg" alt="Logo" class="logo-image" />
+      </a>
+    </div>
 
----
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
+<style lang="scss">
+  .top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    height: 60px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .top-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  ul.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    list-style: none;
+  }
+</style>
