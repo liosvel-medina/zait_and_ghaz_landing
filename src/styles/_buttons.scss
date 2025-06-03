@@ -1,3 +1,29 @@
 @use "colors";
 @use "variables";
 @use "typography";
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  border: none;
+  border-radius: 50%;
+  background: none;
+
+  transition: all 0.3s ease;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(colors.$black, 0.1);
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
