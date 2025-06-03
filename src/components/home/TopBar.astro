@@ -1,3 +1,11 @@
+---
+interface Props {
+  labels: any;
+}
+
+const { labels } = Astro.props;
+---
+
 <nav id="top-bar" class="top-bar">
   <div class="container top-bar-container">
     <div class="logo">
@@ -7,9 +15,9 @@
     </div>
 
     <ul class="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="/">{labels.home}</a></li>
+      <li><a href="#about">{labels.about}</a></li>
+      <li><a href="#contact">{labels.contact}</a></li>
     </ul>
   </div>
 </nav>
