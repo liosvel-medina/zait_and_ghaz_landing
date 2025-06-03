@@ -1,4 +1,7 @@
 ---
+import IconList from "phosphor-astro/List.astro";
+import IconClose from "phosphor-astro/X.astro";
+
 interface Props {
   labels: any;
 }
@@ -14,15 +17,32 @@ const { labels } = Astro.props;
       </a>
     </div>
 
-    <ul class="nav-links">
+    <div class="spacer"></div>
+
+    <ul class="nav-links" id="nav-links">
+      <li class="close">
+        <button class="btn-icon btn-close">
+          <IconClose />
+        </button>
+      </li>
       <li><a href="/">{labels.home}</a></li>
       <li><a href="#about">{labels.about}</a></li>
       <li><a href="#contact">{labels.contact}</a></li>
     </ul>
+
+    <div class="spacer"></div>
+
+    <div class="actions">
+      <button class="btn-icon" id="btn-show-menu">
+        <IconList />
+      </button>
+    </div>
   </div>
 </nav>
 
 <style lang="scss">
+  @use "../../styles/colors";
+
   .top-bar {
     position: fixed;
     top: 0;
@@ -35,6 +55,8 @@ const { labels } = Astro.props;
     height: 60px;
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+    color: colors.$black;
   }
 
   .top-bar-container {
@@ -43,11 +65,81 @@ const { labels } = Astro.props;
     gap: 16px;
   }
 
+  .spacer {
+    flex: 1 1 auto;
+  }
+
   ul.nav-links {
-    display: flex;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: none;
+    flex-direction: column;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    row-gap: 12px;
 
     list-style: none;
+
+    background-color: rgba(colors.$white, 0.5);
+    backdrop-filter: blur(3px);
+
+    &.visible {
+      display: flex;
+    }
+
+    li.close {
+      position: absolute;
+      top: 14px;
+      right: 20px;
+
+      .btn-close {
+        background-color: colors.$white;
+
+        &:hover {
+          background-color: inherit;
+        }
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: colors.$black;
+      font-size: 20px;
+
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: colors.$primary;
+      }
+    }
   }
 </style>
+
+<script>
+  const closeMenu = () => {
+    const menu = document.getElementById("nav-links");
+    if (menu) {
+      menu.classList.remove("visible");
+    }
+  };
+
+  const showMenu = () => {
+    const menu = document.getElementById("nav-links");
+    if (menu) {
+      menu.classList.add("visible");
+    }
+  };
+
+  document.getElementById("btn-show-menu")?.addEventListener("click", showMenu);
+  document.querySelector(".btn-close")?.addEventListener("click", closeMenu);
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      setTimeout(closeMenu, 300);
+    });
+  });
+</script>
