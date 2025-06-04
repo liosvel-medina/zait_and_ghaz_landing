@@ -26,13 +26,16 @@ const { labels } = Astro.props;
   @use "../../styles/colors";
 
   .about-us {
-    padding: 32px 0;
+    padding: 60px 0 32px;
+    margin-top: -60px;
   }
 
   .container-about-us {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     row-gap: 32px;
+
+    padding-top: 32px;
   }
 
   .about-us-info {
@@ -59,12 +62,38 @@ const { labels } = Astro.props;
     }
 
     .description {
-      margin-top: 16px;
+      margin-top: 32px;
     }
   }
 
   .about-us-image {
     width: 100%;
     height: auto;
+  }
+
+  @media (min-width: 768px) {
+    .container-about-us {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      column-gap: 32px;
+
+      padding-top: 64px;
+    }
+
+    .about-us-info {
+      h2 {
+        text-align: left;
+      }
+
+      .subtitle {
+        text-align: left;
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-about-us {
+      column-gap: 64px;
+    }
   }
 </style>

@@ -23,9 +23,9 @@ const { labels } = Astro.props;
     justify-content: center;
 
     width: 100%;
-    height: calc(100vh - 60px);
+    height: 100vh;
 
-    margin-top: 60px;
+    padding-top: 60px;
 
     background: url(../../assets/img/landing-hero-bg.png) no-repeat center
       center / cover fixed;
@@ -55,6 +55,9 @@ const { labels } = Astro.props;
   }
 
   .header-subtitle {
+    max-width: 350px;
+    width: 100%;
+
     margin-top: 16px;
     margin-bottom: 24px;
 
@@ -63,5 +66,10 @@ const { labels } = Astro.props;
     line-height: 1.5;
 
     color: rgba(colors.$white, 1);
+  }
+
+  .btn-discover-more {
+    max-width: 250px;
+    width: 100%;
   }
 </style>
