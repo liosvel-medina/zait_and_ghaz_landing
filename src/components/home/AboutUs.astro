@@ -31,8 +31,8 @@ const { labels } = Astro.props;
   }
 
   .container-about-us {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     row-gap: 32px;
 
     padding-top: 32px;
@@ -69,5 +69,31 @@ const { labels } = Astro.props;
   .about-us-image {
     width: 100%;
     height: auto;
+  }
+
+  @media (min-width: 768px) {
+    .container-about-us {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      column-gap: 32px;
+
+      padding-top: 64px;
+    }
+
+    .about-us-info {
+      h2 {
+        text-align: left;
+      }
+
+      .subtitle {
+        text-align: left;
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-about-us {
+      column-gap: 64px;
+    }
   }
 </style>
