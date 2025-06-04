@@ -2,6 +2,9 @@
 import IconList from "phosphor-astro/List.astro";
 import IconClose from "phosphor-astro/X.astro";
 
+import { Image } from "astro:assets";
+import logo from "../../assets/logo.svg";
+
 const { labels } = Astro.props;
 ---
 
@@ -9,20 +12,27 @@ const { labels } = Astro.props;
   <div class="container top-bar-container">
     <div class="logo">
       <a href="/" class="logo-link">
-        <img src="/assets/logo.svg" alt="Logo" class="logo-image" />
+        <Image src={logo} alt="Logo" class="logo-image" />
       </a>
     </div>
 
     <div class="spacer"></div>
 
     <ul class="nav-links" id="nav-links">
+      <li class="logo">
+        <a href="/">
+          <Image src={logo} alt="Logo" class="logo-image" />
+        </a>
+      </li>
+
       <li class="close">
         <button class="btn-icon btn-close">
           <IconClose />
         </button>
       </li>
-      <li><a href="/">{labels.home}</a></li>
-      <li><a href="#about">{labels.about}</a></li>
+
+      <li><a href="#home">{labels.home}</a></li>
+      <li><a href="#about-us">{labels.about_us}</a></li>
       <li><a href="#contact">{labels.contact}</a></li>
     </ul>
 
@@ -89,6 +99,11 @@ const { labels } = Astro.props;
       display: flex;
     }
 
+    li.logo {
+      position: absolute;
+      top: 14px;
+    }
+
     li.close {
       position: absolute;
       top: 14px;
@@ -96,6 +111,7 @@ const { labels } = Astro.props;
 
       .btn-close {
         background-color: colors.$white;
+        animation: spinInFade 0.3s ease-out;
 
         &:hover {
           background-color: inherit;
@@ -114,6 +130,17 @@ const { labels } = Astro.props;
       &:hover {
         color: colors.$primary;
       }
+    }
+  }
+
+  @keyframes spinInFade {
+    from {
+      transform: rotate(180deg);
+      opacity: 0;
+    }
+    to {
+      transform: rotate(0deg);
+      opacity: 1;
     }
   }
 </style>
@@ -137,7 +164,8 @@ const { labels } = Astro.props;
   document.querySelector(".btn-close")?.addEventListener("click", closeMenu);
   document.querySelectorAll(".nav-links a").forEach((link) => {
     link.addEventListener("click", () => {
-      setTimeout(closeMenu, 300);
+      closeMenu();
+      // setTimeout(closeMenu, 300);
     });
   });
 </script>
