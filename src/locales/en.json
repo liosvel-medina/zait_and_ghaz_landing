@@ -1,9 +1,13 @@
 {
   "home": "Home",
-  "about": "About",
+  "about_us": "About Us",
   "contact": "Contact",
 
   "header_title": "Driving the Future \nof Energy",
   "header_subtitle": "Experts in design, engineering, and transport of petroleum, steel, and cement.",
-  "discover_more": "Discover More"
+  "discover_more": "Discover More",
+
+  "about_us_title": "About Us",
+  "about_us_subtitle": "Mexican leaders in energy, engineering, and logistics solutions",
+  "about_us_description": "Zait & Ghaz SA de CV is a 100% Mexican company founded in 2024 and based in Monterrey, Nuevo León, Mexico, with a global presence. We specialize in the design, engineering, construction, commercialization, and transportation of petroleum products, steel, and cement."
 }

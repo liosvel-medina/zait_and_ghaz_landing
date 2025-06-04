@@ -32,7 +32,7 @@ const { labels } = Astro.props;
       </li>
 
       <li><a href="#home">{labels.home}</a></li>
-      <li><a href="#about">{labels.about}</a></li>
+      <li><a href="#about-us">{labels.about_us}</a></li>
       <li><a href="#contact">{labels.contact}</a></li>
     </ul>
 
@@ -164,7 +164,8 @@ const { labels } = Astro.props;
   document.querySelector(".btn-close")?.addEventListener("click", closeMenu);
   document.querySelectorAll(".nav-links a").forEach((link) => {
     link.addEventListener("click", () => {
-      setTimeout(closeMenu, 300);
+      closeMenu();
+      // setTimeout(closeMenu, 300);
     });
   });
 </script>

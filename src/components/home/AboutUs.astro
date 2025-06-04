@@ -1,0 +1,70 @@
+---
+import { Image } from "astro:assets";
+
+import aboutImage from "../../assets/img/platform1.png";
+
+const { labels } = Astro.props;
+---
+
+<section id="about-us" class="about-us">
+  <div class="container container-about-us">
+    <div class="about-us-info">
+      <h2>{labels.about_us}</h2>
+
+      <div class="subtitle">{labels.about_us_subtitle}</div>
+
+      <p class="description">{labels.about_us_description}</p>
+    </div>
+
+    <div class="about-us-visual">
+      <Image src={aboutImage} alt="oil platform" class="about-us-image" />
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../../styles/colors";
+
+  .about-us {
+    padding: 32px 0;
+  }
+
+  .container-about-us {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+  }
+
+  .about-us-info {
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      text-align: center;
+      font-size: 16px;
+      font-weight: 500;
+
+      color: rgba(colors.$black, 0.75);
+      color: colors.$primary;
+    }
+
+    .subtitle {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 24px;
+      line-height: 1.3;
+      font-weight: 600;
+
+      // color: colors.$primary;
+    }
+
+    .description {
+      margin-top: 16px;
+    }
+  }
+
+  .about-us-image {
+    width: 100%;
+    height: auto;
+  }
+</style>
