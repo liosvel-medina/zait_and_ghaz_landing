@@ -2,6 +2,27 @@
 @use "variables";
 @use "typography";
 
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 24px;
+
+  color: colors.$black;
+  background-color: colors.$white;
+  border: none;
+  border-radius: 8px;
+
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(colors.$white, 0.8);
+  }
+}
+
 .btn-icon {
   display: flex;
   align-items: center;
