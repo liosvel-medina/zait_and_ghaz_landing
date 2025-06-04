@@ -77,12 +77,12 @@ const { labels } = Astro.props;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    row-gap: 12px;
+    row-gap: 14px;
 
     list-style: none;
 
-    background-color: rgba(colors.$white, 0.5);
-    backdrop-filter: blur(3px);
+    background-color: rgba(colors.$white, 0.7);
+    backdrop-filter: blur(30px);
 
     &.visible {
       display: flex;
@@ -106,6 +106,7 @@ const { labels } = Astro.props;
       text-decoration: none;
       color: colors.$black;
       font-size: 20px;
+      font-weight: 500;
 
       transition: all 0.3s ease;
 
