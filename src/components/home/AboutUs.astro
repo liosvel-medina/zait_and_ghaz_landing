@@ -26,13 +26,16 @@ const { labels } = Astro.props;
   @use "../../styles/colors";
 
   .about-us {
-    padding: 32px 0;
+    padding: 60px 0 32px;
+    margin-top: -60px;
   }
 
   .container-about-us {
     display: flex;
     flex-direction: column;
     row-gap: 32px;
+
+    padding-top: 32px;
   }
 
   .about-us-info {
@@ -59,7 +62,7 @@ const { labels } = Astro.props;
     }
 
     .description {
-      margin-top: 16px;
+      margin-top: 32px;
     }
   }
 
