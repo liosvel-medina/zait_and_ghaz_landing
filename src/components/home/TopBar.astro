@@ -8,9 +8,9 @@ import logo from "../../assets/logo.svg";
 const { labels } = Astro.props;
 ---
 
-<nav id="top-bar" class="top-bar">
+<nav id="top-bar" class="top-bar translucent">
   <div class="container top-bar-container">
-    <div class="logo">
+    <div class="brand">
       <a href="/" class="logo-link">
         <Image src={logo} alt="Logo" class="logo-image" />
       </a>
@@ -60,10 +60,29 @@ const { labels } = Astro.props;
     display: flex;
     align-items: center;
 
-    background-color: #fff;
+    background-color: colors.$white;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 
     color: colors.$black;
+
+    transition: all 0.3s ease;
+
+    &.translucent {
+      background-color: transparent;
+      box-shadow: none;
+
+      .brand {
+        .logo-image {
+          filter: invert(1);
+        }
+      }
+
+      .actions {
+        svg {
+          color: colors.$white;
+        }
+      }
+    }
   }
 
   .top-bar-container {
@@ -165,7 +184,17 @@ const { labels } = Astro.props;
   document.querySelectorAll(".nav-links a").forEach((link) => {
     link.addEventListener("click", () => {
       closeMenu();
-      // setTimeout(closeMenu, 300);
     });
+  });
+
+  window.addEventListener("scroll", () => {
+    const topBar = document.getElementById("top-bar");
+    if (topBar) {
+      if (window.scrollY > 0) {
+        topBar.classList.remove("translucent");
+      } else {
+        topBar.classList.add("translucent");
+      }
+    }
   });
 </script>
